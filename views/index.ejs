@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body ng-app="myApp">
+    <div class="wrapper">
+      <h1>Graph Plotter as per the Widgets</h1>
+      <p>
+        Graph based on some filters on overall range of time
+      </p>
+
+      <div ng-controller="myController">
+        <button data-yparam="insertion" data-xparam="repo" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 insertions done in Repository</button>
+        <button data-yparam="insertion" data-xparam="repo" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 insertion done in Repository</button>
+        <button data-yparam="insertion" data-xparam="committer.name" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters who inserted data</button>
+        <button data-yparam="insertion" data-xparam="committer.name" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 Commiters who inserted data</button>
+        <button data-yparam="deletion" data-xparam="repo" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 deletion done in Repository</button>
+        <button data-yparam="deletion" data-xparam="repo" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 deletion done in Repository</button>
+        <button data-yparam="deletion" data-xparam="committer.name" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters who deleted data</button>
+        <button data-yparam="deletion" data-xparam="committer.name" data-type="button 10" data-ng-click="plot_graph($event)">Least 10 Commiters who deleted data</button>
+        <button data-yparam="noOfFiles" data-xparam="repo" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 deletion done in Repository</button>
+        <button data-yparam="noOfFiles" data-xparam="repo" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 deletion done in Repository</button>
+        <button data-yparam="noOfFiles" data-xparam="committer.name" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters who deleted data</button>
+        <button data-yparam="noOfFiles" data-xparam="committer.name" data-type="button 10" data-ng-click="plot_graph($event)">Least 10 Commiters who deleted data</button>
+        <button data-yparam="noOfCommits" data-xparam="repo" data-type="top 10" data-ng-click="plot_graph($event)">10 Repository haivng max commits</button>
+        <button data-yparam="noOfCommits" data-xparam="repo" data-type="bottom 10" data-ng-click="plot_graph($event)">10 repo with min commits</button>
+        <button data-yparam="noOfCommits" data-xparam="committer.name" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters</button>
+        <button data-yparam="noOfCommits" data-xparam="committer.name" data-type="button 10" data-ng-click="plot_graph($event)">Least 10 Commiters</button>
+
+        <p>
+          Plotting all the with respect to time with in two date range
+        </p>
+        <button data-yparam="insertion" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 insertions done in Repository</button>
+        <button data-yparam="insertion" data-xparam="time" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 insertion done in Repository</button>
+        <button data-yparam="insertion" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters who inserted data</button>
+        <button data-yparam="insertion" data-xparam="time" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 Commiters who inserted data</button>-->
+        <button data-yparam="deletion" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 deletion done in Repository</button>
+        <button data-yparam="deletion" data-xparam="time" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 deletion done in Repository</button>
+        <button data-yparam="deletion" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters who deleted data</button>
+        <button data-yparam="deletion" data-xparam="time" data-type="button 10" data-ng-click="plot_graph($event)">Least 10 Commiters who deleted data</button>
+        <button data-yparam="noOfFiles" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 deletion done in Repository</button>
+        <button data-yparam="noOfFiles" data-xparam="time" data-type="bottom 10" data-ng-click="plot_graph($event)">Least 10 deletion done in Repository</button>
+        <button data-yparam="noOfFiles" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters who deleted data</button>
+        <button data-yparam="noOfFiles" data-xparam="time" data-type="button 10" data-ng-click="plot_graph($event)">Least 10 Commiters who deleted data</button>
+        <button data-yparam="noOfCommits" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">10 Repository haivng max commits</button>
+        <button data-yparam="noOfCommits" data-xparam="time" data-type="bottom 10" data-ng-click="plot_graph($event)">10 repo with min commits</button>
+        <button data-yparam="noOfCommits" data-xparam="time" data-type="top 10" data-ng-click="plot_graph($event)">Top 10 Commiters</button>
+        <button data-yparam="noOfCommits" data-xparam="time" data-type="button 10" data-ng-click="plot_graph($event)">Least 10 Commiters</button>
+        <br><br>
+        <span>From date</span><input type="date" ng-model="from_date" data-date-inline-picker="true" />
+        <span>To date</span><input type="date" ng-model="to_date" data-date-inline-picker="true" />
+        <!-- <span>Select To Month</span>
+        <select>
+          To Month  <option ng-repeat="month in month_data">{{ month }}</option>
+        </select>
+        <br>
+        <span>Select From Month</span>
+        <select>
+           <option ng-repeat="month in month_data">{{ month }}</option>
+        </select>
+        <span>Select Year</span>
+        <select>
+          <option>2014</option>
+          <option>2015</option>
+          <option>2016</option>
+          <option>2017</option>
+        </select> -->
+        <div id="graph"> </div>
+      </div>
+    </div>
+
+
+  </body>
+  <script src="javascripts/controllers/indexController.js" type="text/javascript"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src= "/javascripts/plotGraph.js" type="text/javascript"></script>
+</html>
